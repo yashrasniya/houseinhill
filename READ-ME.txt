@@ -1,4 +1,4 @@
-  =>  Template Name    : Arkitektur - Architecture HTML Template
+  =>  Template Name    : Arkitektur 
 
   =>  Template Link    : https://htmlcodex.com/architecture-html-template
 
