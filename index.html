@@ -363,7 +363,7 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp" id="contact-section" data-wow-delay="0.5s">
                     <p class="mb-4"></a>.</p>
-                    <form id="contact-form">
+                     <form id="contact-form">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -380,14 +380,14 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">Subject</label>
+                                    <input type="text" class="form-control" id="Mobile_number" placeholder="Subject" required>
+                                    <label for="subject">Number</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" id="message" placeholder="Leave a message here"
-                                        style="height: 100px"></textarea>
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message"
+                                        style="height: 100px" required></textarea>
                                     <label for="message">Message</label>
                                 </div>
                             </div>
@@ -396,6 +396,34 @@
                             </div>
                         </div>
                     </form>
+
+                    <script>
+                        document.getElementById("contact-form").addEventListener("submit", function (e) {
+                            e.preventDefault();
+
+                            const data = {
+                                name: document.getElementById("name").value,
+                                email: document.getElementById("email").value,
+                                Mobile_number: document.getElementById("Mobile_number").value,
+                                message: document.getElementById("message").value,
+                            };
+
+                            fetch("https://script.google.com/macros/s/AKfycbzUw_8Dr43c5CyScPROxErp1kTyQG68lcyWTDlqai4zhq4cs7gCe7xQnprKX_GenTEy/exec", {
+                                method: "POST",
+                                body: JSON.stringify(data),
+                                
+                            })
+                                .then(res => res.json())
+                                .then(response => {
+                                    alert("Message sent successfully!");
+                                    document.getElementById("contact-form").reset();
+                                })
+                                .catch(error => {
+                                    alert("Something went wrong. Please try again!");
+                                    console.error("Error!", error.message);
+                                });
+                        });
+                    </script>
 
 
 
