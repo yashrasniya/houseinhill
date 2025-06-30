@@ -363,7 +363,7 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp" id="contact-section" data-wow-delay="0.5s">
                     <p class="mb-4"></a>.</p>
-                     <form id="contact-form">
+                     <form id="contact-form" onsubmit="handleSubmit(event)">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -424,6 +424,17 @@
                                 });
                         });
                     </script>
+                    <script>
+  function handleSubmit(event) {
+    event.preventDefault(); // Prevent actual form submission
+
+    // OPTIONAL: You can collect and send data to Google Sheets or backend here
+
+    // Redirect after fake "success"
+    window.location.href = "thankyou.html";
+  }
+</script>
+
 
 
 
